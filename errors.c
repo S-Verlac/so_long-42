@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 08:51:08 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/06 17:40:37 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:21:58 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void	ft_errors(char *map)
 		printf("Error : Missing or multiple exits in the map !\n");
 	else if (ft_missing_collectibles(map) == 0)
 		printf("Error : Missing collectibles in the map !\n");
+	else if (ft_split_map(map) == 0)
+		printf("Error : Player is unable to find a way to the exit !\n");
 	return ;
 }

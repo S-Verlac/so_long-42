@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:46:34 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/06 22:37:15 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:55:27 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,36 @@ int	ft_player_position_y(char *map)
 	return (y);
 }
 
-// int main()
-// {
-// 	printf("x = %d\n", ft_player_position_x("map.ber"));
-// 	printf("y = %d\n", ft_player_position_y("map.ber"));
-// }
+int	ft_backtracking(char **map, int x, int y)
+{
+	if (map[x][y] == 'E')
+		return (1);
+	if (map[x][y] == '1')
+		return (0);
+	map[x][y] = '1';
+	if (ft_backtracking(map, x, y - 1))
+		return (1);
+	if (ft_backtracking(map, x - 1, y))
+		return (1);
+	if (ft_backtracking(map, x, y + 1))
+		return (1);
+	if (ft_backtracking(map, x + 1, y))
+		return (1);
+	return (0);
+}
+
+int	ft_split_map(char *map)
+{
+	char	**new;
+	char	*map_var;
+	int		y;
+	int		x;
+
+	map_var = ft_read_map(map);
+	new = ft_split(map_var, '\n');
+	x = ft_player_position_x("map.ber");
+	y = ft_player_position_y("map.ber");
+	if (ft_backtracking(new, x, y) == 0)
+		return (0);
+	return (1);
+}

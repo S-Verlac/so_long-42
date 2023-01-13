@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:42:29 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/06 20:31:46 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/13 23:00:21 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,12 @@ size_t	ft_strlen(char *s); // Utils.c
 int		ft_strlen_n(char *s); // Utils.c
 int		ft_strchr(char *s, int c); // Utils.c
 int		ft_strncmp(const char	*s1, const char	*s2, size_t	n); // Utils.c
-	/* Backtracking.c */
-int		ft_player_position_x(char *map);
-int		ft_player_position_y(char *map);
+char	*ft_substr(char *s, unsigned int start, size_t len); // Utils.c
+	/* Backtracking.c && Backtracking_utils.c*/
+char	**ft_split(char *s, char c); // Backtracking_utils.c
+int		ft_player_position_x(char *map); // Backtracking.c
+int		ft_player_position_y(char *map); // Backtracking.c
+int		ft_split_map(char *map); // Backtracking.c
+int		ft_backtracking(char **map, int x, int y); // Backtracking.c
 
 #endif
