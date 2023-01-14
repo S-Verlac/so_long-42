@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:07:51 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/06 17:20:21 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/14 01:42:26 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ft_detect_imposter(char *map)
 			i++;
 		}
 	}
+	free(str);
 	if (imposter != 0)
 		return (0);
 	return (1);
@@ -52,6 +53,7 @@ int	ft_missing_player(char *map)
 			player++;
 		i++;
 	}
+	free(str);
 	if (player == 1)
 		return (1);
 	return (0);
@@ -72,6 +74,7 @@ int	ft_missing_exit(char *map)
 			exit++;
 		i++;
 	}
+	free(str);
 	if (exit == 1)
 		return (1);
 	return (0);
@@ -92,6 +95,7 @@ int	ft_missing_collectibles(char *map)
 			collectible++;
 		i++;
 	}
+	free(str);
 	if (collectible == 0)
 		return (0);
 	return (1);

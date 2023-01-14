@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:46:34 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/13 22:55:27 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/14 01:41:18 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_player_position_x(char *map)
 		if (str[i] == 'P')
 			break ;
 	}
+	free (str);
 	return (x);
 }
 
@@ -50,6 +51,7 @@ int	ft_player_position_y(char *map)
 		if (str[i] == 'P')
 			break ;
 	}
+	free (str);
 	return (y);
 }
 
@@ -77,12 +79,21 @@ int	ft_split_map(char *map)
 	char	*map_var;
 	int		y;
 	int		x;
+	int		i;
 
 	map_var = ft_read_map(map);
 	new = ft_split(map_var, '\n');
 	x = ft_player_position_x("map.ber");
 	y = ft_player_position_y("map.ber");
+	i = 0;
 	if (ft_backtracking(new, x, y) == 0)
 		return (0);
+	while (new[i])
+	{
+		free(new[i]);
+		i++;
+	}
+	free (new);
+	free(map_var);
 	return (1);
 }

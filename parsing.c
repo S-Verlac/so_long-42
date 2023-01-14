@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 15:48:00 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/06 17:37:51 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/14 01:33:37 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_rectangular(char *map)
 			y++;
 		i++;
 	}
+	free(str);
 	if (x == y)
 		return (0);
 	return (1);
@@ -93,6 +94,7 @@ int	ft_closed_map_up_left(char *map)
 		}
 		i++;
 	}
+	free(str);
 	return (1);
 }
 
@@ -121,5 +123,6 @@ int	ft_closed_map_down_right(char *map)
 			return (0);
 		i--;
 	}
+	free(str);
 	return (1);
 }

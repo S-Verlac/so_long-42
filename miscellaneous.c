@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:07:45 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/06 17:20:32 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/14 01:45:39 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	*ft_assign(char *map, t_list no)
 		}
 		i++;
 	}
+	free(str);
 	return (0);
 }
 
@@ -79,5 +80,6 @@ void	*ft_scan(char *map)
 	no.exit = mlx_xpm_file_to_image(no.mlx, "./imgs/exit.xpm", &x, &y);
 	ft_assign(map, no);
 	mlx_loop(no.mlx);
+	free(str);
 	return (0);
 }
