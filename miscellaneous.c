@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:07:45 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/14 01:45:39 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/18 18:08:46 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,11 @@ void	*ft_scan(char *map)
 	no.mario = mlx_xpm_file_to_image(no.mlx, "./imgs/mario.xpm", &x, &y);
 	no.collectible = mlx_xpm_file_to_image(no.mlx, "./imgs/col_y.xpm", &x, &y);
 	no.exit = mlx_xpm_file_to_image(no.mlx, "./imgs/exit.xpm", &x, &y);
+	no.xp = ft_player_position_x("map.ber") * 64;
+	no.yp = ft_player_position_y("map.ber") * 64;
 	ft_assign(map, no);
+	printf("%d\n", no.moves = 0);
+	mlx_hook(no.window, 2, 1L << 0, key, &no);
 	mlx_loop(no.mlx);
 	free(str);
 	return (0);

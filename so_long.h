@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:42:29 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/13 23:00:21 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/18 18:09:42 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ typedef struct s_list
 	void	*exit;
 	int		x_win;
 	int		y_win;
+	int		moves;
+	int		yp;
+	int		xp;
 }	t_list;
 
 	/* Parsing.c */
@@ -70,5 +73,7 @@ int		ft_player_position_x(char *map); // Backtracking.c
 int		ft_player_position_y(char *map); // Backtracking.c
 int		ft_split_map(char *map); // Backtracking.c
 int		ft_backtracking(char **map, int x, int y); // Backtracking.c
+	/* Movements.c */
+int		key(int keycode, t_list *no);
 
 #endif

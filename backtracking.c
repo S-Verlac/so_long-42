@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:46:34 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/14 01:41:18 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:54:18 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,5 @@ int	ft_split_map(char *map)
 		free(new[i]);
 		i++;
 	}
-	free (new);
-	free(map_var);
-	return (1);
+	return (free(new), free(map_var), 1);
 }

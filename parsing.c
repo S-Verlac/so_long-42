@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 15:48:00 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/14 01:33:37 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:56:51 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ int	ft_rectangular(char *map)
 int	ft_equal_lines(char *map)
 {
 	char	*tmp;
+	char	*str;
 	int		reference;
 	int		i;
 
-	tmp = ft_read_map(map);
+	str = ft_read_map(map);
+	tmp = str;
 	reference = ft_strlen_n(tmp);
 	i = 0;
 	while (*tmp != '\0')
@@ -65,6 +67,7 @@ int	ft_equal_lines(char *map)
 			tmp++;
 		}
 	}
+	free(str);
 	if (i != reference)
 		return (0);
 	return (1);
