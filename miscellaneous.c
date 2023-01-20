@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:07:45 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/18 18:08:46 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/20 22:11:48 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	*ft_scan(char *map)
 	no.yp = ft_player_position_y("map.ber") * 64;
 	ft_assign(map, no);
 	printf("%d\n", no.moves = 0);
+	no.map = ft_split(str, '\n');
 	mlx_hook(no.window, 2, 1L << 0, key, &no);
 	mlx_loop(no.mlx);
 	free(str);

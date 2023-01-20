@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:52:54 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/18 18:36:37 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/20 22:10:45 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 int	key(int keycode, t_list *no)
 {
-	char	*mapp;
-	char	**map;
 	int		x;
 	int		y;
 	int		i;
 
-	mapp = ft_read_map("map.ber");
-	map = ft_split(mapp, '\n');
 	x = no->xp / 64;
 	y = no->yp / 64;
 	i = 0;
@@ -30,7 +26,7 @@ int	key(int keycode, t_list *no)
 	if (keycode == 124)
 	{
 		x++;
-		if (map[y][x] == 'C' || map[y][x] == '0' || map[y][x] == 'P')
+		if (no->map[y][x] == 'C' || no->map[y][x] == '0' || no->map[y][x] == 'P')
 		{
 			mlx_put_image_to_window(no->mlx, no->window, no->floor, no->xp, no->yp);
 			mlx_put_image_to_window(no->mlx, no->window, no->mario, no->xp + 64, no->yp);
@@ -42,7 +38,7 @@ int	key(int keycode, t_list *no)
 	if (keycode == 123)
 	{
 		x--;
-		if (map[y][x] == 'C' || map[y][x] == '0' || map[y][x] == 'P')
+		if (no->map[y][x] == 'C' || no->map[y][x] == '0' || no->map[y][x] == 'P')
 		{
 			mlx_put_image_to_window(no->mlx, no->window, no->floor, no->xp, no->yp);
 			mlx_put_image_to_window(no->mlx, no->window, no->mario, no->xp - 64, no->yp);
@@ -54,7 +50,7 @@ int	key(int keycode, t_list *no)
 	if (keycode == 125)
 	{
 		y++;
-		if (map[y][x] == 'C' || map[y][x] == '0' || map[y][x] == 'P')
+		if (no->map[y][x] == 'C' || no->map[y][x] == '0' || no->map[y][x] == 'P')
 		{
 			mlx_put_image_to_window(no->mlx, no->window, no->floor, no->xp, no->yp);
 			mlx_put_image_to_window(no->mlx, no->window, no->mario, no->xp, no->yp + 64);
@@ -66,7 +62,7 @@ int	key(int keycode, t_list *no)
 	if (keycode == 126)
 	{
 		y--;
-		if (map[y][x] == 'C' || map[y][x] == '0' || map[y][x] == 'P')
+		if (no->map[y][x] == 'C' || no->map[y][x] == '0' || no->map[y][x] == 'P')
 		{
 			mlx_put_image_to_window(no->mlx, no->window, no->floor, no->xp, no->yp);
 			mlx_put_image_to_window(no->mlx, no->window, no->mario, no->xp, no->yp - 64);
@@ -75,7 +71,5 @@ int	key(int keycode, t_list *no)
 			y = (no->yp / 64);
 		}
 	}
-	while (map[i])
-		free(map[i++]);
-	return (free(mapp), free(map), 0);
+	return (0);
 }

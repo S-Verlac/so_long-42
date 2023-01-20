@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:42:29 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/18 18:09:42 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/20 22:11:58 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_list
 	void	*collectible;
 	void	*floor;
 	void	*exit;
+	char	**map;
 	int		x_win;
 	int		y_win;
 	int		moves;
