@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:06:00 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/18 17:51:30 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/21 02:59:48 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int	main(int argc, char **argv)
 		}
 	}
 	else
-		printf("Error : Map path is missing !\n");
+		ft_printf("Error : Map path is missing !\n");
 	exit (0);
 }

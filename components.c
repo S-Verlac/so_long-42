@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:07:51 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/14 01:42:26 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/20 22:24:46 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,22 @@ int	ft_missing_collectibles(char *map)
 	if (collectible == 0)
 		return (0);
 	return (1);
+}
+
+int	ft_count_collectibles(char *map)
+{
+	char	*str;
+	int		i;
+	int		collectibles;
+
+	str = ft_read_map(map);
+	i = 0;
+	collectibles = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == 'C')
+			collectibles++;
+		i++;
+	}
+	return (free(str), collectibles);
 }

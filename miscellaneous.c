@@ -6,13 +6,13 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:07:45 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/20 22:11:48 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/21 00:36:38 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	*ft_assign(char *map, t_list no)
+int	ft_assign(char *map, t_list no)
 {
 	char	*str;
 	int		x;
@@ -57,11 +57,10 @@ void	*ft_assign(char *map, t_list no)
 		}
 		i++;
 	}
-	free(str);
-	return (0);
+	return (free(str), 0);
 }
 
-void	*ft_scan(char *map)
+void	ft_scan(char *map)
 {
 	t_list	no;
 	char	*str;
@@ -76,15 +75,16 @@ void	*ft_scan(char *map)
 	no.wall = mlx_xpm_file_to_image(no.mlx, "./imgs/wall.xpm", &x, &y);
 	no.floor = mlx_xpm_file_to_image(no.mlx, "./imgs/floor.xpm", &x, &y);
 	no.mario = mlx_xpm_file_to_image(no.mlx, "./imgs/mario.xpm", &x, &y);
-	no.collectible = mlx_xpm_file_to_image(no.mlx, "./imgs/col_y.xpm", &x, &y);
+	no.collectible = mlx_xpm_file_to_image(no.mlx, "./imgs/patrol.xpm", &x, &y);
 	no.exit = mlx_xpm_file_to_image(no.mlx, "./imgs/exit.xpm", &x, &y);
 	no.xp = ft_player_position_x("map.ber") * 64;
 	no.yp = ft_player_position_y("map.ber") * 64;
 	ft_assign(map, no);
-	printf("%d\n", no.moves = 0);
+	ft_printf("Player Moves : %d\n", no.moves = 0);
 	no.map = ft_split(str, '\n');
+	no.collectibles = ft_count_collectibles(map);
 	mlx_hook(no.window, 2, 1L << 0, key, &no);
+	mlx_string_put(no.mlx, no.window, 20, 20, 0xFFFFFF, "911");
 	mlx_loop(no.mlx);
 	free(str);
-	return (0);
 }

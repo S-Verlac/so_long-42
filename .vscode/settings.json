@@ -2,6 +2,7 @@
     "files.associations": {
         "*.excalidraw": "json",
         "*.excalidrawlib": "json",
-        "__config": "c"
+        "__config": "c",
+        "so_long.h": "c"
     }
 }

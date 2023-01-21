@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:15:43 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/10 18:08:16 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/21 03:26:36 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,30 @@ char	*ft_strdup(char *s1)
 	}
 	new[i] = '\0';
 	return (new);
+}
+
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	if (start > ft_strlen(s) || len == 0)
+		return (ft_strdup(""));
+	if (len > ft_strlen(s))
+		substr = malloc(((ft_strlen(s) - start) + 1) * sizeof(char));
+	else
+		substr = malloc((len + 1) * sizeof(char));
+	if (!substr)
+		return (0);
+	while (s[start] && i < len)
+	{
+		substr[i] = s[start];
+		i++;
+		start++;
+	}
+	substr[i] = '\0';
+	return (substr);
 }

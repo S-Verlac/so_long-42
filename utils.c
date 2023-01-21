@@ -27,6 +27,20 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
+char	*ft_strrchr(char *s, char c)
+{
+	int	i;
+
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == c)
+			return (s + i);
+		i--;
+	}
+	return (0);
+}
+
 int	ft_strlen_n(char *s)
 {
 	int	i;
@@ -76,28 +90,3 @@ int	ft_strncmp(const char	*s1, const char	*s2, size_t	n)
 	return (0);
 }
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
-{
-	char	*substr;
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	if (start > ft_strlen(s) || len == 0)
-		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		substr = malloc(((ft_strlen(s) - start) + 1) * sizeof(char));
-	else
-		substr = malloc((len + 1) * sizeof(char));
-	if (!substr)
-		return (0);
-	while (s[start] && i < len)
-	{
-		substr[i] = s[start];
-		i++;
-		start++;
-	}
-	substr[i] = '\0';
-	return (substr);
-}
