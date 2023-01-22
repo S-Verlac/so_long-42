@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:42:29 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/22 22:52:21 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/22 23:13:45 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
