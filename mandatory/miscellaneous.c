@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:07:45 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/22 22:53:28 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/22 23:19:30 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	ft_scan(char *map)
 	no.collectibles = ft_count_collectibles(&no);
 	mlx_hook(no.win, 2, 1L << 0, key, &no);
 	mlx_hook(no.win, 17, 1L << 0, click, &no);
-	mlx_string_put(no.mlx, no.win, 20, 20, 0xFFFFFF, "911");
 	mlx_loop(no.mlx);
 	free(no.mapone);
 }
