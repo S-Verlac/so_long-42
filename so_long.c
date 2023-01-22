@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:06:00 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/21 02:59:48 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/22 22:54:17 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,25 @@
 int	main(int argc, char **argv)
 {
 	char	*map;
-	char	*str;
+	t_list	no;
 
 	if (argc == 2)
 	{
 		map = argv[1];
-		str = ft_read_map(map);
-		if (ft_check_path(map) != -1 && ft_check_map_extension(map) != 0
-			&& str != NULL && ft_rectangular(map) != 0
-			&& ft_equal_lines(map) != 0 && ft_closed_map_up_left(map) == 1
-			&& ft_detect_imposter(map) != 0 && ft_missing_exit(map) != 0
-			&& ft_missing_player(map) != 0 && ft_missing_collectibles(map) != 0
-			&& ft_closed_map_down_right(map) == 1 && ft_split_map(map) != 0)
+		no.mapone = ft_read_map(map);
+		if (ft_check_map_extension(map) != 0 && ft_check_path(map) != -1
+			&& no.mapone != NULL && ft_rectangular(&no) != 0
+			&& ft_equal_lines(&no) != 0 && ft_closed_map_up_left(&no) == 1
+			&& ft_detect_imposter(&no) != 0 && ft_missing_exit(&no) != 0
+			&& ft_missing_player(&no) != 0
+			&& ft_missing_collectibles_floor(&no) != 0
+			&& ft_closed_map_down_right(&no) == 1 && ft_split_map(&no) != 0)
 			ft_scan(map);
 		else
 		{
-			ft_errors(map);
-			free(str);
+			ft_errors(map, &no);
 			exit (0);
+			free(no.mapone);
 		}
 	}
 	else

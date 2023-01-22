@@ -6,13 +6,13 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 15:48:00 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/18 17:56:51 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/22 22:56:09 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_rectangular(char *map)
+int	ft_rectangular(t_list *no)
 {
 	char	*str;
 	int		x;
@@ -22,7 +22,7 @@ int	ft_rectangular(char *map)
 	x = 0;
 	y = 1;
 	i = 0;
-	str = ft_read_map(map);
+	str = no->mapone;
 	while (str[i] != '\n')
 	{
 		i++;
@@ -35,50 +35,46 @@ int	ft_rectangular(char *map)
 			y++;
 		i++;
 	}
-	free(str);
 	if (x == y)
 		return (0);
 	return (1);
 }
 
-int	ft_equal_lines(char *map)
+int	ft_equal_lines(t_list *no)
 {
-	char	*tmp;
-	char	*str;
+	char	*map;
 	int		reference;
 	int		i;
 
-	str = ft_read_map(map);
-	tmp = str;
-	reference = ft_strlen_n(tmp);
+	map = no->mapone;
+	reference = ft_strlen_n(map);
 	i = 0;
-	while (*tmp != '\0')
+	while (*map != '\0')
 	{
-		if (*tmp == '\0' || *tmp == '\n')
+		if (*map == '\0' || *map == '\n')
 		{
 			if (i != reference)
 				return (0);
 			i = 0;
-			tmp++;
+			map++;
 		}
 		else
 		{
 			i++;
-			tmp++;
+			map++;
 		}
 	}
-	free(str);
 	if (i != reference)
 		return (0);
 	return (1);
 }
 
-int	ft_closed_map_up_left(char *map)
+int	ft_closed_map_up_left(t_list *no)
 {
 	char	*str;
 	int		i;
 
-	str = ft_read_map(map);
+	str = no->mapone;
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
 	{
@@ -97,16 +93,15 @@ int	ft_closed_map_up_left(char *map)
 		}
 		i++;
 	}
-	free(str);
 	return (1);
 }
 
-int	ft_closed_map_down_right(char *map)
+int	ft_closed_map_down_right(t_list *no)
 {
 	char	*str;
 	int		i;
 
-	str = ft_read_map(map);
+	str = no->mapone;
 	i = 0;
 	while (str[i] != '\0')
 	{
@@ -126,6 +121,5 @@ int	ft_closed_map_down_right(char *map)
 			return (0);
 		i--;
 	}
-	free(str);
 	return (1);
 }

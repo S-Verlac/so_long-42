@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 13:06:12 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/06 19:16:47 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/22 23:02:45 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,10 @@ int	ft_check_path(char *map)
 	return (fd);
 }
 
-int	ft_check_map_extension(char *map) // reverse it
+int	ft_check_map_extension(char *map)
 {
-	int		i;
-
-	i = 0;
-	while (*map != '\0' && *map != '.')
-	{
-		map++;
-	}
-	if (*map == '.')
-	{
-		if (ft_strncmp(map, ".ber", 4) == 0)
-			return (1);
-	}
+	if (ft_strncmp(map + (ft_strlen(map) - 4), ".ber", 4) == 0)
+		return (1);
 	return (0);
 }
 
@@ -46,11 +36,11 @@ char	*ft_read_map(char *map)
 
 	i = 1;
 	fd = open(map, O_RDONLY);
+	if (fd == -1)
+		print_and_exit();
 	buff = malloc(BUFFER_SIZE + 1);
-	if (!buff)
-		return (NULL);
 	stash = malloc(BUFFER_SIZE + 1);
-	if (!stash)
+	if (!stash || !buff)
 		return (NULL);
 	while (i > 0 && !ft_strchr(stash, '\0'))
 	{
@@ -61,8 +51,7 @@ char	*ft_read_map(char *map)
 		buff[i] = '\0';
 		stash = ft_strjoin(stash, buff);
 	}
-	free(buff);
-	return (stash);
+	return (free(buff), stash);
 }
 
 int	ft_count_size_x(char *str)

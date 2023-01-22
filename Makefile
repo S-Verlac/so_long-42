@@ -6,7 +6,7 @@
 #    By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 08:42:22 by mbachar           #+#    #+#              #
-#    Updated: 2023/01/20 23:48:54 by mbachar          ###   ########.fr        #
+#    Updated: 2023/01/22 21:21:19 by mbachar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,16 +21,16 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	@ $(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(PRINTF)
+	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(PRINTF)
 
 %.o : %.c $(INCLUDE)
-	@ $(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean :
-	@ rm -rf $(OBJ)
+	rm -rf $(OBJ)
 
 fclean : clean
-	@ rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re : fclean all
 

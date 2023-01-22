@@ -6,19 +6,19 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:07:51 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/20 22:24:46 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/22 22:55:40 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_detect_imposter(char *map)
+int	ft_detect_imposter(t_list *no)
 {
 	char	*str;
 	int		i;
 	int		imposter;
 
-	str = ft_read_map(map);
+	str = no->mapone;
 	i = 0;
 	imposter = 0;
 	while (str[i] != '\0')
@@ -32,19 +32,18 @@ int	ft_detect_imposter(char *map)
 			i++;
 		}
 	}
-	free(str);
 	if (imposter != 0)
 		return (0);
 	return (1);
 }
 
-int	ft_missing_player(char *map)
+int	ft_missing_player(t_list *no)
 {
 	char	*str;
 	int		i;
 	int		player;
 
-	str = ft_read_map(map);
+	str = no->mapone;
 	i = 0;
 	player = 0;
 	while (str[i] != '\0')
@@ -53,19 +52,18 @@ int	ft_missing_player(char *map)
 			player++;
 		i++;
 	}
-	free(str);
 	if (player == 1)
 		return (1);
 	return (0);
 }
 
-int	ft_missing_exit(char *map)
+int	ft_missing_exit(t_list *no)
 {
 	char	*str;
 	int		i;
 	int		exit;
 
-	str = ft_read_map(map);
+	str = no->mapone;
 	i = 0;
 	exit = 0;
 	while (str[i] != '\0')
@@ -74,40 +72,42 @@ int	ft_missing_exit(char *map)
 			exit++;
 		i++;
 	}
-	free(str);
 	if (exit == 1)
 		return (1);
 	return (0);
 }
 
-int	ft_missing_collectibles(char *map)
+int	ft_missing_collectibles_floor(t_list *no)
 {
 	char	*str;
 	int		i;
 	int		collectible;
+	int		floor;
 
-	str = ft_read_map(map);
+	str = no->mapone;
 	i = 0;
 	collectible = 0;
+	floor = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == 'C')
 			collectible++;
+		else if (str[i] == '0')
+			floor++;
 		i++;
 	}
-	free(str);
-	if (collectible == 0)
+	if (collectible == 0 || floor == 0)
 		return (0);
 	return (1);
 }
 
-int	ft_count_collectibles(char *map)
+int	ft_count_collectibles(t_list *no)
 {
 	char	*str;
 	int		i;
 	int		collectibles;
 
-	str = ft_read_map(map);
+	str = no->mapone;
 	i = 0;
 	collectibles = 0;
 	while (str[i] != '\0')
@@ -116,5 +116,5 @@ int	ft_count_collectibles(char *map)
 			collectibles++;
 		i++;
 	}
-	return (free(str), collectibles);
+	return (collectibles);
 }
