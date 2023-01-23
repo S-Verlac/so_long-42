@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:52:54 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/22 23:34:40 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/23 09:49:27 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ void	key_right(t_list *no)
 {
 	no->x_move++;
 	if (no->map[no->y_move][no->x_move] == 'E' && no->collectibles == 0)
-	{
-		ft_printf("You won hh :D\n");
-		exit(0);
-	}
+		won_and_ext();
 	if (no->map[no->y_move][no->x_move] == 'C'
 		|| no->map[no->y_move][no->x_move] == '0'
 		|| no->map[no->y_move][no->x_move] == 'P')
@@ -27,11 +24,13 @@ void	key_right(t_list *no)
 		mlx_put_image_to_window(no->mlx, no->win,
 			no->floor, no->xp, no->yp);
 		mlx_put_image_to_window(no->mlx, no->win,
-			no->mario, no->xp + 64, no->yp);
+			no->play, no->xp + 64, no->yp);
 		if (no->map[no->y_move][no->x_move] == 'C')
 		{
 			no->map[no->y_move][no->x_move] = '0';
 			no->collectibles--;
+			if (no->collectibles == 1)
+				change_collectible(no);
 		}
 		no->xp += 64;
 		ft_printf("Player Moves : %d\n", ++no->moves);
@@ -43,10 +42,7 @@ void	key_left(t_list *no)
 {
 	no->x_move--;
 	if (no->map[no->y_move][no->x_move] == 'E' && no->collectibles == 0)
-	{
-		ft_printf("You won hh :D\n");
-		exit(0);
-	}
+		won_and_ext();
 	if (no->map[no->y_move][no->x_move] == 'C'
 		|| no->map[no->y_move][no->x_move] == '0'
 		|| no->map[no->y_move][no->x_move] == 'P')
@@ -54,11 +50,13 @@ void	key_left(t_list *no)
 		mlx_put_image_to_window(no->mlx, no->win,
 			no->floor, no->xp, no->yp);
 		mlx_put_image_to_window(no->mlx, no->win,
-			no->mario, no->xp - 64, no->yp);
+			no->plale, no->xp - 64, no->yp);
 		if (no->map[no->y_move][no->x_move] == 'C')
 		{
 			no->map[no->y_move][no->x_move] = '0';
 			no->collectibles--;
+			if (no->collectibles == 1)
+				change_collectible(no);
 		}
 		no->xp -= 64;
 		ft_printf("Player Moves : %d\n", ++no->moves);
@@ -70,10 +68,7 @@ void	key_down(t_list *no)
 {
 	no->y_move++;
 	if (no->map[no->y_move][no->x_move] == 'E' && no->collectibles == 0)
-	{
-		ft_printf("You won hh :D\n");
-		exit(0);
-	}
+		won_and_ext();
 	if (no->map[no->y_move][no->x_move] == 'C'
 		|| no->map[no->y_move][no->x_move] == '0'
 		|| no->map[no->y_move][no->x_move] == 'P')
@@ -81,11 +76,13 @@ void	key_down(t_list *no)
 		mlx_put_image_to_window(no->mlx, no->win,
 			no->floor, no->xp, no->yp);
 		mlx_put_image_to_window(no->mlx, no->win,
-			no->mario, no->xp, no->yp + 64);
+			no->play, no->xp, no->yp + 64);
 		if (no->map[no->y_move][no->x_move] == 'C')
 		{
 			no->map[no->y_move][no->x_move] = '0';
 			no->collectibles--;
+			if (no->collectibles == 1)
+				change_collectible(no);
 		}
 		no->yp += 64;
 		ft_printf("Player Moves : %d\n", ++no->moves);
@@ -97,10 +94,7 @@ void	key_up(t_list *no)
 {
 	no->y_move--;
 	if (no->map[no->y_move][no->x_move] == 'E' && no->collectibles == 0)
-	{
-		ft_printf("You won hh :D\n");
-		exit(0);
-	}
+		won_and_ext();
 	if (no->map[no->y_move][no->x_move] == 'C'
 		|| no->map[no->y_move][no->x_move] == '0'
 		|| no->map[no->y_move][no->x_move] == 'P')
@@ -108,11 +102,13 @@ void	key_up(t_list *no)
 		mlx_put_image_to_window(no->mlx, no->win,
 			no->floor, no->xp, no->yp);
 		mlx_put_image_to_window(no->mlx, no->win,
-			no->mario, no->xp, no->yp - 64);
+			no->play, no->xp, no->yp - 64);
 		if (no->map[no->y_move][no->x_move] == 'C')
 		{
 			no->map[no->y_move][no->x_move] = '0';
 			no->collectibles--;
+			if (no->collectibles == 1)
+				change_collectible(no);
 		}
 		no->yp -= 64;
 		ft_printf("Player Moves : %d\n", ++no->moves);

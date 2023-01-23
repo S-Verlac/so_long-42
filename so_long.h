@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:42:29 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/22 23:13:45 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/23 09:48:35 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,17 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../ft_printf/ft_printf.h"
+# include "./ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
 	void	*mlx;
 	void	*win;
 	void	*wall;
-	void	*mario;
-	void	*coll;
+	void	*play;
+	void	*plale;
+	void	*coll1;
+	void	*coll2;
 	void	*floor;
 	void	*exit;
 	char	**map;
@@ -68,10 +70,16 @@ int		ft_missing_collectibles_floor(t_list *no); // Components.c
 int		ft_count_collectibles(t_list *no); // Components.c
 	/* Errors.c */
 void	ft_errors(char *map, t_list *no); // Errors.c
-void	print_and_exit(void); // Errors.c
 	/* Miscellaneous.c */
 void	ft_scan(char *map); // Miscellaneous.c
 void	ft_assign(t_list no); // Miscellaneous.c
+void	ft_assign_pictures(t_list *no); // Miscellaneous.c
+	/* Miscellaneous_bk.c */
+void	print_and_exit(void); // Miscellaneous_bk.c
+void	images_protection(void); // Miscellaneous_bk.c
+int		click(void); // Miscellaneous_bk.c
+void	change_collectible(t_list *no); // Miscellaneous_bk.c
+void	won_and_ext(void); // Miscellaneous_bk.c
 	/* Utils.c && Utils_bk.c */
 char	*ft_strjoin(char *s1, char *s2); // Utils_bk.c
 char	*ft_strdup(char *s1); // Utils_bk.c

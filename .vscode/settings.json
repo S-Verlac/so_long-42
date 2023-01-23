@@ -3,6 +3,7 @@
         "*.excalidraw": "json",
         "*.excalidrawlib": "json",
         "__config": "c",
-        "so_long.h": "c"
+        "so_long.h": "c",
+        "stdio.h": "c"
     }
 }
