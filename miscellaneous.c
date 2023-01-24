@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:07:45 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/23 09:44:03 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/24 10:50:31 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_scan(char *map)
 	no.xp = ft_player_position_x(&no) * 64;
 	no.yp = ft_player_position_y(&no) * 64;
 	ft_assign(no);
-	ft_printf("Player Moves : %d\n", no.moves);
+	ft_printf("Player Moves : %d\n", no.moves = 0);
 	no.map = ft_split(no.mapone, '\n');
 	no.collectibles = ft_count_collectibles(&no);
 	mlx_hook(no.win, 2, 1L << 0, key, &no);

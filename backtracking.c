@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:46:34 by mbachar           #+#    #+#             */
-/*   Updated: 2023/01/22 23:04:06 by mbachar          ###   ########.fr       */
+/*   Updated: 2023/01/24 10:49:56 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int	ft_player_position_y(t_list *no)
 
 int	ft_backtracking(char **map, int x, int y)
 {
-	if (map[x][y] == 'E')
+	if (map[y][x] == 'E')
 		return (1);
-	if (map[x][y] == '1')
+	if (map[y][x] == '1')
 		return (0);
-	map[x][y] = '1';
+	map[y][x] = '1';
 	if (ft_backtracking(map, x, y - 1))
 		return (1);
 	if (ft_backtracking(map, x, y + 1))
